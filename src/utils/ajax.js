@@ -31,9 +31,6 @@ const onsend = o => {
         })
         o.data = form
     }
-    // else {
-    //     o.data = o.data;
-    // }
     // o.headers['Authorization'] = '1213279901969350657'
     // o.headers['Authorization'] = localStorage.getItem("token")
     return o

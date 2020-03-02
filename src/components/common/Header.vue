@@ -1,11 +1,20 @@
 <template>
     <div class="header">
         <!-- 折叠按钮 -->
-        <div class="collapse-btn" @click="collapseChage">
-            <i v-if="!collapse" class="el-icon-s-fold"></i>
-            <i v-else class="el-icon-s-unfold"></i>
+        <div class="header-left">
+            <div class="logo" @click="collapseChage">
+                <img src="@/assets/logo.png" alt="logo">
+                <span>深圳地铁</span>
+            </div>
+            <ul class="title_Module">
+                <li v-for="(i,index) in titleModuleList" 
+                    :key="index" :class="index === titleModuleIndex?'title_Selected':''">
+                    <i class="iconfont" :class="i.icon"></i>
+                    <span>{{i.name}}</span>
+                </li>
+            </ul>
         </div>
-        <div class="logo">后台管理系统</div>
+        
         <div class="header-right">
             <div class="header-user-con">
                 <!-- 全屏显示 -->
@@ -38,9 +47,6 @@
                         <i class="el-icon-caret-bottom"></i>
                     </span>
                     <el-dropdown-menu slot="dropdown">
-                        <a href="https://github.com/lin-xin/vue-manage-system" target="_blank">
-                            <el-dropdown-item>项目仓库</el-dropdown-item>
-                        </a>
                         <el-dropdown-item divided command="loginout">退出登录</el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
@@ -56,7 +62,39 @@ export default {
             collapse: false,
             fullscreen: false,
             name: 'linxin',
-            message: 2
+            activeName:'second',
+            message: 2,
+            titleModuleList:[
+                {
+                    name:'控制台',
+                    icon:'icon-kongzhitai'
+                },
+                {
+                    name:'综合执法',
+                    icon:'icon-zonghezhifa1'
+                },
+                {
+                    name:'智能考勤',
+                    icon:'icon-kaoqin3'
+                },
+                {
+                    name:'三项业务',
+                    icon:'icon-yewu1'
+                },
+                {
+                    name:'设备管理',
+                    icon:'icon-shebeiguanli1'
+                },
+                {
+                    name:'综合管理',
+                    icon:'icon-tubiao-'
+                },
+                {
+                    name:'系统管理',
+                    icon:'icon-system'
+                }
+            ],
+            titleModuleIndex:0
         };
     },
     computed: {
@@ -113,14 +151,19 @@ export default {
     }
 };
 </script>
-<style scoped>
+<style lang="less" scoped>
+.header-left{display: flex;}
 .header {
     position: relative;
     box-sizing: border-box;
     width: 100%;
-    height: 70px;
+    height: 54px;
     font-size: 22px;
-    color: #fff;
+    color: #343435;
+    background: #fff;
+    box-shadow: 0 5px 10px #ddd;
+    display: flex; justify-content: space-between;
+    overflow: hidden;
 }
 .collapse-btn {
     float: left;
@@ -129,17 +172,18 @@ export default {
     line-height: 70px;
 }
 .header .logo {
-    float: left;
-    width: 250px;
-    line-height: 70px;
+    display: flex; align-items: center;
+    line-height: 70px;cursor: pointer;
+    margin-left:12px;width:175px;
+    span{color: #343435;font-weight: 700;font-size: 20px;}
+    img{margin-right: 6px;width: 35px;height: auto;}
 }
 .header-right {
-    float: right;
     padding-right: 50px;
 }
 .header-user-con {
     display: flex;
-    height: 70px;
+    height: 54px;
     align-items: center;
 }
 .btn-fullscreen {
@@ -164,10 +208,10 @@ export default {
     height: 8px;
     border-radius: 4px;
     background: #f56c6c;
-    color: #fff;
+    color: #343435;
 }
 .btn-bell .el-icon-bell {
-    color: #fff;
+    color: #343435;
 }
 .user-name {
     margin-left: 10px;
@@ -182,10 +226,28 @@ export default {
     border-radius: 50%;
 }
 .el-dropdown-link {
-    color: #fff;
+    color: #343435;
     cursor: pointer;
 }
 .el-dropdown-menu__item {
     text-align: center;
+}
+.title_Module{
+    display: flex;
+    li{
+        height: 54px; display: flex;align-items: center; 
+        cursor: pointer;margin: 0 19.5px;font-size: 15px;color: #030202;
+        .iconfont{ font-size: 18px; margin-right: 9px;}
+    }
+    li:hover{
+        color: #1ca75f; box-sizing: border-box;
+    }
+    li:nth-child(1){margin-left:0px;}
+    .title_Selected{
+        color: #1ca75f; box-sizing: border-box;
+        font-weight: 700; align-items: center;
+        border-bottom: 2px solid #1ca75f;
+        span{font-weight: 700; font-size: 15px;}
+    }
 }
 </style>

@@ -1,15 +1,8 @@
 <!-- 测试表格 复制页面把当前注释删除 -->
 <template>
     <div class='table'>
-        <!-- title标题 -->
-        <div class="crumbs">
-            <el-breadcrumb separator="/">
-                <el-breadcrumb-item>
-                    <i class="el-icon-lx-cascades"></i>硬件管理
-                </el-breadcrumb-item>
-            </el-breadcrumb>
-        </div>
-
+        <!-- 提示 -->
+        <Titlehint :list="titleText"></Titlehint>
         <!-- 表格内容 -->
         <div class="container">
             <div class="handle-box">
@@ -92,7 +85,6 @@
         
         <!-- 表格数据修改 -->
         <dataStatusPage ref="dataStatusPage" :childrenData="childrenData" />
-        
     </div>
 </template>
 
@@ -100,10 +92,11 @@
 import dataStatusPage from './dataStatusPage'
 export default {
     components: {
-        dataStatusPage
+        dataStatusPage,
     },
     data() {
         return {
+            titleText:['测试','测试1','测试2'],
             query: {
                 pageIndex: 1,
                 pageSize: 10,

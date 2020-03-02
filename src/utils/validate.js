@@ -40,4 +40,35 @@ export function validateregIdNo(str){
   const reg = /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\d{3}[\dX]$/
   return reg.test(str)
 }
+//裁剪时间格式
+export function timeTailor(str){
+  return str.slice(0,10)
+}
 
+//blob转base64
+export function blobToBase64(blob) {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.onload = (e) => {
+      resolve(e.target.result);
+    };
+    // readAsDataURL
+    fileReader.readAsDataURL(blob);
+    fileReader.onerror = () => {
+      reject(new Error('blobToBase64 error'));
+    };
+  });
+}
+
+//下载文件
+export function downloadFile(data,fileName){
+  let blob = new Blob([data], {
+      type: 'application/vnd.ms-excel'
+  });
+  let objectUrl = URL.createObjectURL(blob);
+  let a = document.createElement("a");
+  a.href = objectUrl;
+  a.setAttribute('download',fileName);
+  document.body.appendChild(a);
+  a.click();
+}

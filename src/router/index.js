@@ -7,7 +7,7 @@ export default new Router({
     routes: [
         {
             path: '/',
-            redirect: '/dashboard'
+            redirect: '/systemManage/businessManage/product'
         },
         {
             path: '/',
@@ -30,18 +30,6 @@ export default new Router({
                     meta: { title: '基础表格' }
                 },
                 {
-                    // markdown组件
-                    path: '/markdown',
-                    component: () => import('../components/page/Markdown.vue'),
-                    meta: { title: 'markdown编辑器' }
-                },
-                {
-                    // 国际化组件
-                    path: '/i18n',
-                    component: () => import('../components/page/I18n.vue'),
-                    meta: { title: '国际化' }
-                },
-                {
                     path: '/404',
                     component: () => import('../components/page/404.vue'),
                     meta: { title: '404' }
@@ -51,9 +39,6 @@ export default new Router({
                     component: () => import('../components/page/403.vue'),
                     meta: { title: '403' }
                 },
-
-                // ***********************************************************************************************
-                
             ]
         },
         {

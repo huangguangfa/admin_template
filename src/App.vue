@@ -49,7 +49,18 @@
         border-bottom-left-radius: 5px;
         position: absolute;
         left: -10px; top: 3px;
- 
     }
-    
+    .el-menu-item.is-active{ position: relative;}
+    .el-menu-item.is-active::before{
+        position: absolute;
+        display: block;
+        content: '';
+        background-image: url('./assets/is-active.png');
+        background-size: 15px 13px;
+        width: 15px;
+        height: 13px;
+        top:50%;
+        margin-top: -6px;
+        left: 30px;
+    }
 </style>

@@ -12,38 +12,47 @@
             <template v-for="item in items">
                 <!-- 多级 -->
                 <template v-if="item.children">
-                    <el-submenu :index="item.index" :key="item.index">
+                    <el-submenu :index="item.url" :key="item.url">
                         <template slot="title">
-                            <i :class="item.icon"></i>
+                            <i :class="item.icon" class="iconfont"></i>
                             <span slot="title">{{ item.title }}</span>
                         </template>
                         
                         <template v-for="subItem in item.children">
                             <el-submenu
                                 v-if="subItem.children"
-                                :index="subItem.index"
-                                :key="subItem.index"
+                                :index="subItem.url"
+                                :key="subItem.url"
                             >
-                                <template slot="title">{{ subItem.title }}</template>
+                                <template slot="title">
+                                    <i :class="isubItem.icon" class="iconfont"></i>
+                                    <span slot="title">{{ isubItem.title }}</span>
+                                </template>
                                 <el-menu-item
                                     v-for="(threeItem,i) in subItem.children"
                                     :key="i"
-                                    :index="threeItem.index"
-                                >{{ threeItem.title }}</el-menu-item>
+                                    :index="threeItem.url"
+                                >
+                                    <i :class="threeItem.icon" class="iconfont"></i>
+                                    <span slot="title">{{ threeItem.title }}</span>
+                                </el-menu-item>
                             </el-submenu>
 
                             <el-menu-item
                                 v-else
-                                :index="subItem.index"
-                                :key="subItem.index"
-                            >{{ subItem.title }}</el-menu-item>
+                                :index="subItem.url"
+                                :key="subItem.url"
+                            >
+                                <i :class="subItem.icon" class="iconfont"></i>
+                                <span slot="title">{{ subItem.title }}</span>
+                            </el-menu-item>
                         </template>
                     </el-submenu>
                 </template>
                 <!-- 只有一级 -->
                 <template v-else>
-                    <el-menu-item :index="item.index" :key="item.index">
-                        <i :class="item.icon"></i>
+                    <el-menu-item :index="item.url" :key="item.url">
+                        <i :class="item.icon" class="iconfont"></i>
                         <span slot="title">{{ item.title }}</span>
                     </el-menu-item>
                 </template>
@@ -58,12 +67,12 @@ export default {
     data() {
         return {
             collapse: false,
-            items: this.$store.state.menuItems
+            items:this.$store.state.menuItems
         };
     },
     computed: {
         onRoutes() {
-            return this.$route.path.replace('/', '');
+            return this.$route.path.replace('', '');
         }
     },
     created() {
@@ -77,11 +86,12 @@ export default {
 </script>
 
 <style scoped>
+.iconfont{margin-right: 10px;}
 .sidebar {
     display: block;
     position: absolute;
     left: 0;
-    top: 70px;
+    top: 55.5px;
     bottom: 0;
     overflow-y: scroll;
 }
@@ -89,7 +99,7 @@ export default {
     width: 0;
 }
 .sidebar-el-menu:not(.el-menu--collapse) {
-    width: 196px;
+    width: 183px; overflow: hidden;
 }
 .sidebar > ul {
     height: 100%;

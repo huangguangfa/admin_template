@@ -8,22 +8,22 @@
     background: #f2f2f2;
 }
 .plugins-tips a{
-    color: #00d1b2;
+    color: #1ca75f ;
 }
 .el-upload--text em {
-    color: #00d1b2;
+    color: #1ca75f ;
 }
 .pure-button{
-    background: #00d1b2;
+    background: #1ca75f ;
 }
 .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
-    background-color: #00d1b2 !important;
-    border-color: #00d1b2 !important;
+    background-color: #1ca75f  !important;
+    border-color: #1ca75f  !important;
 }
 .tags-li.active {
-    border: 1px solid #00d1b2;
-    background-color: #00d1b2;
+    border: 1px solid #1ca75f ;
+    background-color: #1ca75f ;
 }
 .collapse-btn:hover{
-    background: #00d1b2;
+    background: #1ca75f ;
 }

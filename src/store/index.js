@@ -6,41 +6,24 @@ const store = new Vuex.Store({
     state: {
         // 左侧菜单栏数据
         menuItems: [
+            // {
+            //     icon: 'icon-zidongpaiban1',
+            //     url: '/dashboard',
+            //     title: '系统首页'
+            // },
             {
-                icon: 'el-icon-lx-home',
-                index: 'dashboard',
-                title: '系统首页'
-            },
-            {
-                icon: 'el-icon-lx-cascades',
-                index: 'table1',
-                title: '测试表格',
-                // children:[
-                //     {
-                //         icon: 'el-icon-lx-home',
-                //         index: 'dashboard',
-                //         title: '系统首页',
-                //         children:[
-                //             {
-                //                 icon: 'el-icon-lx-home',
-                //                 index: 'dashboard',
-                //                 title: '系统首页',
-                                
-                //             }
-                //         ]
-                //     }
-                // ]
-            },
-            {
-                icon: 'el-icon-lx-home',
-                index: 'businessManage',
+                icon: 'icon-renyuantiaopei',
+                url: '/systemManage/businessManage/product',
                 title: '业务相关',
                 children:[
                     {
-                        icon: 'el-icon-lx-home',
-                        index: '/systemManage/businessManage/product',
+                        url: '/systemManage/businessManage/product',
                         title: '硬件管理',
-                    }
+                    },
+                    {
+                        url: '/table1',
+                        title: '测试表格',
+                    },
                 ]
             }
         ],
