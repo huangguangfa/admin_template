@@ -22,7 +22,7 @@ const store = new Vuex.Store({
                     },
                     {
                         url: '/table1',
-                        title: '测试表格',
+                        title: '测试表格1',
                     },
                 ]
             }
