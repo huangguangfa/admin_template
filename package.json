@@ -1,6 +1,6 @@
 {
-  "name": "admin-template",
-  "version": "4.2.0",
+  "name": "admin",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "npm run serve",
@@ -17,7 +17,8 @@
     "px2rem-loader": "^0.1.9",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
-    "vuex": "^3.1.2"
+    "vuex": "^3.1.2",
+    "vuex-persistedstate": "^4.0.0-beta.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",

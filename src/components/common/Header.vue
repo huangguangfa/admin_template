@@ -6,12 +6,14 @@
                 <img src="@/assets/logo.png" alt="logo">
                 <span>深圳地铁</span>
             </div>
+
             <ul class="title_Module">
-                <li v-for="(i,index) in titleModuleList" 
-                    :key="index" :class="index === titleModuleIndex?'title_Selected':''">
+                <li v-for="(i,index) in titleModuleList" @click="switchSystem(i,index,600)"
+                    :key="index" :class="index === current_system_index?'title_selected':''">
                     <i class="iconfont" :class="i.icon"></i>
                     <span>{{i.name}}</span>
                 </li>
+                <div id="bottom_border" ref="bottom_border" class="title_Module_bottom_border" :style="`left:${title_border_left}px`" ></div>
             </ul>
         </div>
         
@@ -66,7 +68,7 @@ export default {
             message: 2,
             titleModuleList:[
                 {
-                    name:'控制台',
+                    name:'控制台的',
                     icon:'icon-kongzhitai'
                 },
                 {
@@ -94,7 +96,9 @@ export default {
                     icon:'icon-system'
                 }
             ],
-            titleModuleIndex:0
+            current_system_index:0,
+            title_border_left:0,
+            border_width:125,
         };
     },
     computed: {
@@ -103,13 +107,30 @@ export default {
             return username ? username : this.name;
         }
     },
+    mounted(){
+        //监听屏幕变化设置title的长度
+        this.getSystemClientWidth();
+        window.addEventListener('resize', () =>{
+            this.getSystemClientWidth();
+        })
+    },
     methods: {
+        getSystemClientWidth(){
+            if( !this.$refs.bottom_border ) return;
+            this.border_width = this.$refs.bottom_border.clientWidth || 125;
+            this.title_border_left = this.current_system_index * this.border_width;
+        },
         // 用户名下拉菜单选择事件
         handleCommand(command) {
             if (command == 'loginout') {
                 localStorage.removeItem('ms_username');
                 this.$router.push('/login');
             }
+        },
+        //切换应用系统
+        switchSystem( sys, index ){
+            this.title_border_left = index * this.border_width;
+            this.current_system_index = index;
         },
         // 侧边栏折叠
         collapseChage() {
@@ -233,21 +254,33 @@ export default {
     text-align: center;
 }
 .title_Module{
-    display: flex;
+    display: flex; position: relative;
+    user-select: none; justify-content: center;
     li{
-        height: 54px; display: flex;align-items: center; 
-        cursor: pointer;margin: 0 19.5px;font-size: 15px;color: #030202;
-        .iconfont{ font-size: 18px; margin-right: 9px;}
+        height: 55px; display: flex;align-items: center; width: 120px;
+        cursor: pointer; justify-content: space-between; padding: 0 17px; box-sizing: border-box;
+        font-size: 15px;color: #030202;
+        .iconfont{ font-size: 18px;}
     }
-    li:hover{
+    .title_selected{
         color: #1ca75f; box-sizing: border-box;
-    }
-    li:nth-child(1){margin-left:0px;}
-    .title_Selected{
-        color: #1ca75f; box-sizing: border-box;
-        font-weight: 700; align-items: center;
-        border-bottom: 2px solid #1ca75f;
+        transition: all 0.5s ; 
+        font-weight: 700; align-items: center; position: relative;
         span{font-weight: 700; font-size: 15px;}
+    }
+    .title_Module_bottom_border{
+        width: 120px;height: 2px;
+        transition: all 0.5s; 
+        position: absolute;
+        bottom: 0px;
+    } 
+    .title_Module_bottom_border::after{
+        content: "";
+        width: 85px;
+        margin: 0 auto;
+        height: 2px;
+        background:#1ca75f ;
+        position: absolute;left:20px;
     }
 }
 </style>

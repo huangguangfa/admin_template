@@ -1,0 +1,51 @@
+{
+  "id": "1718203",
+  "name": "imageViewer",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4933158",
+      "name": "错",
+      "font_class": "cuo",
+      "unicode": "e6c9",
+      "unicode_decimal": 59081
+    },
+    {
+      "icon_id": "13744876",
+      "name": "重置",
+      "font_class": "zhongzhi-copy",
+      "unicode": "e796",
+      "unicode_decimal": 59286
+    },
+    {
+      "icon_id": "4266194",
+      "name": "右旋转",
+      "font_class": "youxuanzhuan",
+      "unicode": "e720",
+      "unicode_decimal": 59168
+    },
+    {
+      "icon_id": "4266201",
+      "name": "左旋转",
+      "font_class": "zuoxuanzhuan",
+      "unicode": "e722",
+      "unicode_decimal": 59170
+    },
+    {
+      "icon_id": "4425822",
+      "name": "减",
+      "font_class": "jian",
+      "unicode": "e794",
+      "unicode_decimal": 59284
+    },
+    {
+      "icon_id": "4425823",
+      "name": "加",
+      "font_class": "jia",
+      "unicode": "e795",
+      "unicode_decimal": 59285
+    }
+  ]
+}

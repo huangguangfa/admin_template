@@ -1,29 +1,26 @@
 <template>
     <div class="sidebar">
-         <!-- background-color="#324157"
-            text-color="#bfcbd9"
-            active-text-color="#20a0ff" -->
         <el-menu
+            v-if="!isFirstStatus"
             class="sidebar-el-menu"
             :default-active="onRoutes"
-            :collapse="collapse"
+            :collapse="isCollapse"
             unique-opened
             router>
-            <template v-for="item in items">
+            <template v-for="item in $store.getters.menuItems">
                 <!-- 多级 -->
-                <template v-if="item.children">
+                <template v-if="item.children.length">
                     <el-submenu :index="item.url" :key="item.url">
                         <template slot="title">
                             <i :class="item.icon" class="iconfont"></i>
                             <span slot="title">{{ item.title }}</span>
                         </template>
-                        
+    
                         <template v-for="subItem in item.children">
                             <el-submenu
-                                v-if="subItem.children"
+                                v-if="subItem.children.length"
                                 :index="subItem.url"
-                                :key="subItem.url"
-                            >
+                                :key="subItem.url">
                                 <template slot="title">
                                     <i :class="isubItem.icon" class="iconfont"></i>
                                     <span slot="title">{{ isubItem.title }}</span>
@@ -31,8 +28,7 @@
                                 <el-menu-item
                                     v-for="(threeItem,i) in subItem.children"
                                     :key="i"
-                                    :index="threeItem.url"
-                                >
+                                    :index="threeItem.url">
                                     <i :class="threeItem.icon" class="iconfont"></i>
                                     <span slot="title">{{ threeItem.title }}</span>
                                 </el-menu-item>
@@ -41,8 +37,7 @@
                             <el-menu-item
                                 v-else
                                 :index="subItem.url"
-                                :key="subItem.url"
-                            >
+                                :key="subItem.url">
                                 <i :class="subItem.icon" class="iconfont"></i>
                                 <span slot="title">{{ subItem.title }}</span>
                             </el-menu-item>
@@ -58,16 +53,17 @@
                 </template>
             </template>
         </el-menu>
+        <!-- <img v-else class="Sidebar_img" src="@/assets/img/Sidebar.png" alt=""> -->
     </div>
 </template>
 
 <script>
-import bus from '../common/bus';
+import bus from './bus'
 export default {
     data() {
         return {
-            collapse: false,
-            items:this.$store.state.menuItems
+            isCollapse: false,
+            isFirstStatus:false
         };
     },
     computed: {
@@ -75,33 +71,50 @@ export default {
             return this.$route.path.replace('', '');
         }
     },
+    watch:{
+        "$store.getters.menuItems"() {
+            this.isFirstStatus = false;
+        }
+    },
     created() {
-        // 通过 Event Bus 进行组件间通信，来折叠侧边栏
-        bus.$on('collapse', msg => {
-            this.collapse = msg;
-            bus.$emit('collapse-content', msg);
+        bus.$on('collapse', value => {
+            this.$parent.isCollapse = value;
+            this.isCollapse = value;
         });
     }
 };
 </script>
 
 <style scoped>
-.iconfont{margin-right: 10px;}
+.iconfont{margin-right: 21px; font-size: 18px;}
 .sidebar {
+    width: 100%;
     display: block;
+    height: 90vh;
+    overflow-y: scroll;
+    padding-bottom: 40px;
     position: absolute;
     left: 0;
-    top: 55.5px;
-    bottom: 0;
-    overflow-y: scroll;
+    top: 56px;
+    user-select:none;
 }
-.sidebar::-webkit-scrollbar {
-    width: 0;
-}
-.sidebar-el-menu:not(.el-menu--collapse) {
-    width: 183px; overflow: hidden;
-}
-.sidebar > ul {
-    height: 100%;
-}
+.sidebar::-webkit-scrollbar { width: 0px;}
+.sidebar-el-menu:not(.el-menu--collapse) {  width: 200px;  min-height: 400px;}
+.sidebar > ul { height: 100%;}
+
+</style>
+
+<style lang="less">
+    .is-opened{
+        .el-submenu__title{color: #030202; background:rgba(244,244,244,1);
+            >.iconfont{color: #030202;}
+        }
+    }
+    .sidebar{
+        .el-submenu__title{ position: sticky; top: 0;  z-index: 99; }
+        .Sidebar_img{
+            width:146px;height: 700px;transform: scale(0.9);
+            position: absolute;left: 30px;z-index: 999;top: 10px;
+        }
+    } 
 </style>

@@ -1,0 +1,123 @@
+.submit-list {
+  padding: 20px;
+  font-size: 14px;
+}
+.submit-list > li {
+  margin-bottom: 15px;
+  display: flex;
+}
+.submit-list > li > div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.submit-list > li > div > p {
+  white-space: nowrap;
+  width: 125px;
+  text-align: right;
+  margin-right: 10px;
+}
+.submit-list > li > div > p > i {
+  color: red;
+  margin-right: 3px;
+}
+.submit-list > li > div > div {
+  flex: 1;
+}
+.submit-list > li:last-child {
+  margin-bottom: 0;
+}
+.submit-list .between {
+  justify-content: space-between;
+}
+.submit-list .grow > div {
+  width: 100%;
+}
+.submit-list .grow > div > div {
+  flex-grow: 1;
+}
+.submit-list .textarea > div {
+  align-items: flex-start;
+}
+.submit-table {
+  font-size: 14px;
+}
+.submit-table table {
+  width: 100%;
+  table-layout: fixed;
+}
+.submit-table table tr {
+  height: 42px;
+  box-sizing: border-box;
+}
+.submit-table table tr td {
+  vertical-align: middle;
+  border: 1px solid #CDD7DF;
+}
+.submit-table table tr .key {
+  width: 91px;
+  background-color: #F6FAFA;
+  text-align: center;
+}
+.submit-table table tr .key > i {
+  color: red;
+  margin-right: 3px;
+}
+.submit-table table .h169 {
+  height: 169px;
+}
+.submit-table table .el-input__inner {
+  border: none;
+}
+.submit-table table .el-textarea {
+  height: 100%;
+}
+.submit-table table .el-textarea__inner {
+  height: 80px;
+  border: none;
+  resize: none;
+}
+.submit-title {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+.submit-title::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 14px;
+  background-color: #86CEA8;
+  border-radius: 1px;
+  margin-right: 7px;
+}
+.submit-operate {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.tag {
+  display: inline-block;
+  padding: 0 8px;
+  height: 25px;
+  line-height: 23px;
+  box-sizing: border-box;
+  background: #F8F9FA;
+  border-radius: 3px;
+  font-size: 12px;
+}
+.tag-start {
+  border: 1px solid #FFD4CD;
+  color: #FC6E57;
+}
+.tag-end {
+  border: 1px solid #D5E4FB;
+  color: #0078ff;
+}
+.el-input-number {
+  width: 100% !important;
+}
+.between {
+  display: flex;
+  justify-content: space-between;
+}

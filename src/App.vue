@@ -11,7 +11,6 @@
     /* @import "./style/css/color-dark.css";    */
     /* 浅绿色主题   */
     @import "./style/css/theme-green/color-green.css";
-    
     /* 弹出框上下居中 */
     .el-dialog{
        display: flex;
