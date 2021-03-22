@@ -5,19 +5,14 @@ export default {
         menuItems:[
             {
                 icon: 'icon-renyuantiaopei',
-                url: '/systemManage/businessManage/product',
+                url: '/demo',
                 title: '业务相关',
                 children:[
                     {
-                        url: '/systemManage/businessManage/product',
+                        url: '/demo',
                         title: '硬件管理',
                         children:[]
-                    },
-                    {
-                        url: '/table1',
-                        title: '测试表格1',
-                        children:[]
-                    },
+                    }
                 ]
             }
         ]

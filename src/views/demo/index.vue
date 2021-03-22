@@ -3,7 +3,6 @@
     <div class='table'>
         <!-- 提示 -->
         <Titlehint :list="titleText"></Titlehint>
-
         <!-- 表格内容 -->
         <div class="container">
             <div class="handle-box">
@@ -11,9 +10,8 @@
                     type="primary"
                     icon="el-icon-circle-plus"
                     class="handle-del mr10"
-                    @click="addData">
-                    新增
-                </el-button>
+                    @click="addData"
+                >新增</el-button>
                 <el-button
                     type="danger"
                     icon="el-icon-delete"
@@ -57,7 +55,7 @@
                 </el-table-column>
 
                 <el-table-column prop="date" label="注册时间"></el-table-column>
-                <el-table-column label="操作" width="180" align="center">
+                <el-table-column label="操作" width="280" align="center">
                     <template slot-scope="scope">
                         <el-button
                             type="primary"
@@ -73,6 +71,7 @@
                     </template>
                 </el-table-column>
             </el-table>
+
             <div class="pagination">
                 <el-pagination
                     background
@@ -86,16 +85,14 @@
         
         <!-- 表格数据修改 -->
         <dataStatusPage ref="dataStatusPage" :childrenData="childrenData" />
-        
     </div>
 </template>
 
 <script>
 import dataStatusPage from './dataStatusPage'
-import { getPageDataAPI  } from './api/index'
 export default {
     components: {
-        dataStatusPage
+        dataStatusPage,
     },
     data() {
         return {
@@ -188,32 +185,19 @@ export default {
                     "thumb": "https://lin-xin.gitee.io/images/post/node3.png"
                 },
             ],
-            childrenData:{},
+            childrenData:{}
         };
     },
     mounted() {
 
     },
     created() {
-       
+
     },
     methods: {
-        getPageData(){
-            let params = {
-                type:'$get',
-                data:{
-                    page:1,
-                    size:10
-                }
-            }
-            getPageDataAPI(params).then( o =>{
-                console.log(o)
-            })
-        },
         compile(data){
             this.$refs.dataStatusPage.dialogVisible = true;
             this.childrenData = data;
-            // console.log(data)
         },
         addData(){
             this.$refs.dataStatusPage.dialogVisible = true;
