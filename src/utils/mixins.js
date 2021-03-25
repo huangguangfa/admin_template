@@ -69,10 +69,8 @@ export const switchPage = {
     methods:{
         switchPage(){
             this.$EventBus.$on('switchPage', (data) => {
-                this.isActive = data.isActive;
-                if(data.isData){
-                    this.TitlehintData = data.isData;
-                }
+                this.activeName = data.activeName;
+                this.TitlehintData = data.isData || {};
             });
         }
     },

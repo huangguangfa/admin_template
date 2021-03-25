@@ -4,12 +4,13 @@ export default {
         message:0, //全局消息数量
         menuItems:[
             {
-                icon: 'icon-renyuantiaopei',
+                icon: 'icon-ditu',
                 url: '/demo',
                 title: '业务相关',
                 children:[
                     {
                         url: '/demo',
+                        icon: 'icon-renlianshibie2',
                         title: '硬件管理',
                         children:[]
                     }

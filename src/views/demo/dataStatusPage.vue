@@ -1,166 +1,128 @@
-<!-- 测试数据 修改 展示 -->
 <template>
-    <div class='dataStatusPage'>
-        <el-dialog
-            title="提示"
-            width="757px"
-            :visible.sync="dialogVisible"
-            :before-close="handleClose">
-            <ul class="parmas">
-                <div class="parmas_li">
-                    <li>
-                        <span>用户名</span>
-                        <div class="elInput">
-                            <el-input v-model="childrenData.name" placeholder="请输入用户名"></el-input>
-                        </div>
-                    </li>
-                    <li>
-                        <span>性别</span>
-                        <div class="elInput">
-                            <el-input v-model="childrenData.name" placeholder="请输入性别"></el-input>
-                        </div>
-                    </li>
-                </div>
-                
-               <div class="parmas_li">
-                    <li>
-                        <span>密码</span>
-                        <div class="elInput">
-                            <el-input v-model="childrenData.money" placeholder="请输入密码"></el-input>
-                        </div>
-                    </li>
-                    <li>
-                        <span>确认密码</span>
-                        <div class="elInput">
-                            <el-input v-model="childrenData.money" placeholder="请输入密码"></el-input>
-                        </div>
-                    </li>
-               </div>
-               <div class="parmas_li">
-                   <li>
-                        <span>备注</span>
-                        <div class="elInput">
-                            <el-input v-model="childrenData.thumb" placeholder="请输入备注信息"></el-input>
-                        </div>
-                    </li>
-                    <li>
-                        <span>申请理由</span>
-                        <div class="elInput">
-                            <el-input v-model="childrenData.date" placeholder="请输入密码"></el-input>
-                        </div>
-                    </li>
-               </div>
-               <div class="parmas_li">
-
-               </div>
-               <div class="parmas_li">
-                   <li>
-                        <span>地址信息</span>
-                        <div class="elInput">
-                            <el-input v-model="childrenData.address" placeholder="请输入密码"></el-input>
-                        </div>
-                    </li>
-                    <li>
-                        <span>金额</span>
-                        <div class="elInput">
-                            <el-input v-model="childrenData.id" placeholder="请输入密码"></el-input>
-                        </div>
-                    </li>
-               </div>
-               <div class="parmas_li">
-                    <li>
-                        <span>时间</span>
-                        <div class="elInput">
-                            <el-input v-model="childrenData.date" placeholder="请输入密码"></el-input>
-                        </div>
-                    </li>
-                    <li>
-                        <span>时间</span>
-                        <div class="elInput">
-                            <el-input v-model="childrenData.date" placeholder="请输入密码"></el-input>
-                        </div>
-                    </li>
-               </div>
-                
-                <div class="parmas_li">
-                     <li>
-                        <span>入户时间</span>
-                        <div class="elInput">
-                            <el-input v-model="childrenData.date" placeholder="请输入密码"></el-input>
-                        </div>
-                    </li>
-                    <li>
-                        <span>创建时间</span>
-                        <div class="elInput">
-                            <el-input v-model="childrenData.date" placeholder="请输入密码"></el-input>
-                        </div>
-                    </li>
-                </div>
-                <div class="parmas_li">
-                    <li>
-                        <span>测试地址</span>
-                        <div class="elInput">
-                            <el-input v-model="childrenData.address" placeholder="请输入密码"></el-input>
-                        </div>
-                    </li>
-                    <li>
-                        <span>接口创建</span>
-                        <div class="elInput">
-                            <el-input  v-model="childrenData.thumb" placeholder="请输入密码"></el-input>
-                        </div>
-                    </li>
-                </div>
-            </ul>
-
-            <div slot="footer" class="dialog-footer">
-                <el-button @click="dialogVisible = false">取 消</el-button>
-                <el-button type="primary" @click="submit">确 定</el-button>
+    <div class="handle_table_data">
+         <Titlehint 
+            :list="['排班管理','规则审核','审核']"
+            :show="true"
+            :isData="{ activeName:'tableModule' }">
+        </Titlehint>
+        <div class="handle_table_data_box">
+            <div class="handle_table_data_title"> 新增 </div>
+            <div class="handle_table_data_content">
+                <table class="tablelist">
+                    <tr>
+                        <td class="h_row_item_label necessary"> 巡查名称 </td>
+                        <td class="h_row_item_value">
+                            <div class="h_row_item_value_box">
+                                <el-input v-model="value" placeholder="输入值"></el-input>
+                            </div>
+                        </td>
+                        <td class="h_row_item_label necessary"> 巡查名称 </td>
+                        <td class="h_row_item_value">
+                            <div class="h_row_item_value_box">
+                                <el-input v-model="value" placeholder="输入值"></el-input>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="h_row_item_label necessary"> 巡查名称 </td>
+                        <td class="h_row_item_value">
+                            <div class="h_row_item_value_box">
+                                <el-input v-model="value" placeholder="输入值"></el-input>
+                            </div>
+                        </td>
+                        <td class="h_row_item_label necessary"> 巡查名称 </td>
+                        <td class="h_row_item_value">
+                            <div class="h_row_item_value_box">
+                                <el-input v-model="value" placeholder="输入值"></el-input>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
-        </el-dialog>
-    </div>
+        </div>
+        
+    </div>  
 </template>
 
 <script>
-
 export default {
-    props:{
-        childrenData:Object
-    },
-    components: {},
-    data() {
+    data(){
         return {
-            dialogVisible: false
-        };
-    },
-    mounted() {
-
-    },
-    created() {
-
-    },
-    methods: {
-        handleClose(done) {
-            this.$parent.dataShow = false;
-            done();
-        },
-        submit(){
-            console.log(this.childrenData)
+            value:null
         }
-    },
+    }
 }
 </script>
-<style lang='less' scoped>
-    .parmas{
-        // display: flex; flex-wrap: wrap;
-        .parmas_li{
-            width: 100%;
-            display: flex; justify-content: space-between;
-            li{ display: flex; align-items: center;
-                margin: 8px 0;
-                span{white-space: nowrap; margin-right: 14px; display: inline-block;text-align: right; width: 60px; }
-                .elInput{width: 263px;}
+
+
+<style lang="less" scoped>
+.handle_table_data{
+    
+    .handle_table_data_box{
+        padding: 20px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        .handle_table_data_title{
+            position: relative; margin-bottom: 20px; height: 20px;
+            font-size: 16px;
+            &::before{
+                position: absolute;
+                content: "";
+                background: #51c782;
+                width: 5px;
+                height: 5px;
+                border-radius: 100%;
+                left: -10px;
+                top: 50%;
+                margin-top: -5px;
             }
         }
-        
+        .handle_table_data_content{
+            border: 1px solid #cdd7df;
+            .tablelist{
+                width: 100%;
+                tr{
+                    border-bottom: 1px solid #cdd7df;width: 100%;
+                    td{  height: 0; vertical-align: middle; }
+                    .h_row_item_label{
+                        font-size: 12px;
+                        width: 100px;
+                        background: #f6fafa;
+                        line-height: 1.4;
+                        text-align: center;
+                        box-sizing: border-box;
+                        padding: 15px 20px;
+                        border-right: 1px solid #cdd7df;
+                    }
+                    .necessary{
+                        position: relative;
+                        &::after{
+                            content: '*';
+                            position: absolute;
+                            left: 15px;
+                            color: red;
+                        }
+                    }
+                    .h_row_item_value{
+                        .h_row_item_value_box{
+                            height: 100%; display: flex; align-items: center;
+                            /deep/ .el-input--mini .el-input__inner{ height: 100% !important;border: none !important; }
+                            /deep/ .el-input{ height: 100% !important; border-right: 1px solid #cdd7df; min-width: 300px; }
+                        }
+                    }
+                    td:last-child{
+                        .h_row_item_value_box{
+                            /deep/ .el-input{ border-right:none; }
+                        }
+                    }
+                }
+                tr:last-child{
+                    border: none;
+                }   
+            }
+        }
     }
+    
+}
 </style>

@@ -195,3 +195,5 @@ export function flattenDeep( arr = [], childs = "children" ) {
 	  );
 	}, []);
 }
+
+export function pageShow(activeName,isData) { this.$EventBus.$emit('switchPage',{activeName,isData}) }

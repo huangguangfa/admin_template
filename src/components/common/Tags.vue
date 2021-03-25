@@ -23,7 +23,6 @@
 </template>
 
 <script>
-    import bus from './bus';
     export default {
         data() {
             return {
@@ -71,7 +70,7 @@
                         name: route.matched[1].components.default.name
                     })
                 }
-                bus.$emit('tags', this.tagsList);
+                this.$EventBus.$emit('tags', this.tagsList);
             },
             handleTags(command){
                 command === 'other' ? this.closeOther() : this.closeAll();
@@ -90,7 +89,7 @@
         created(){
             this.setTags(this.$route);
             // 监听关闭当前页面的标签页
-            bus.$on('close_current_tags', () => {
+            this.$EventBus.$on('close_current_tags', () => {
                 for (let i = 0, len = this.tagsList.length; i < len; i++) {
                     const item = this.tagsList[i];
                     if(item.path === this.$route.fullPath){

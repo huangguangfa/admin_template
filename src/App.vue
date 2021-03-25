@@ -7,6 +7,7 @@
 <style  src="./style/commonCss/index.css"></style> 
 <style lang="less">
     @import "./style/css/main.css";
+    @import "./style/commonCss/page.less";
     /*深色主题*/
     /* @import "./style/css/color-dark.css";    */
     /* 浅绿色主题   */

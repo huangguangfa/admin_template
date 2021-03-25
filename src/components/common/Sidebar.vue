@@ -58,7 +58,6 @@
 </template>
 
 <script>
-import bus from './bus'
 export default {
     data() {
         return {
@@ -77,7 +76,7 @@ export default {
         }
     },
     created() {
-        bus.$on('collapse', value => {
+        this.$EventBus.$on('collapse', value => {
             this.$parent.isCollapse = value;
             this.isCollapse = value;
         });

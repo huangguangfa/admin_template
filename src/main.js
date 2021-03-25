@@ -14,7 +14,10 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI, {
     size: 'mini'
 });
+Vue.prototype.$EventBus = new Vue();
 
+import { pageShow } from '@/utils/validate.js';
+Vue.prototype.$pageShow = pageShow;
 new Vue({
     store,
     router,
