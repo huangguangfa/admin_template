@@ -1,23 +1,14 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
-import ElementUI from 'element-ui';
 import store from './store/index';
 import './style/css/theme-green/index.css'; // 浅绿色主题
 import './style/css/icon.css';
 import 'babel-polyfill';
-import './utils/rem'
-//提示组件
-import Titlehint from './components/common/Titlehint/index.vue'
-Vue.component('Titlehint',Titlehint)
+import './utils/rem';
+import './plugins'
 Vue.config.productionTip = false;
-Vue.use(ElementUI, {
-    size: 'mini'
-});
-Vue.prototype.$EventBus = new Vue();
 
-import { pageShow } from '@/utils/validate.js';
-Vue.prototype.$pageShow = pageShow;
 new Vue({
     store,
     router,

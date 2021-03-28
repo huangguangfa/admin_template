@@ -31,7 +31,7 @@ const onsend = o => {
         })
         o.data = form
     }
-    o.headers['Authorization'] = '1375069367556902913'
+    o.headers['Authorization'] = '1376075196829536257'
     // o.headers['Authorization'] = localStorage.getItem("token")
     return o
 }
@@ -80,9 +80,7 @@ export default {
     $put: (url, o) => service.put(url, o),
     $post: (url, o) => service.post(url, o),
     $patch: (url, o) => service.patch(url, o),
-    $form: (url, o) => service.post(url, [o]),
-    $auth: url => service.get(url, { responseType: 'blob' }).then(o => ({
-        key: o.headers.key,
-        data: o.data
-    }))
+    $form: (url, o) => service.post(url, o),
+    $auth: (url, o) => service.post(url, o, { responseType: 'blob' }),
+    $uploadPost:(url,o,fn) => service.post(url, o,{ headers: {'Content-Type': 'multipart/form-data',},onUploadProgress:fn })
 }

@@ -305,5 +305,5 @@ export default {
             }
         }
     }
-    .imgview{margin: 0 3px; width: 100%; height: 100%;}
+    .imgview{ width: 100%; height: 100%;}
 </style>

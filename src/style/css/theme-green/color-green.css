@@ -8,22 +8,22 @@
     background: #f2f2f2;
 }
 .plugins-tips a{
-    color: #1ca75f ;
+    color: #2E81FC ;
 }
 .el-upload--text em {
-    color: #1ca75f ;
+    color: #2E81FC ;
 }
 .pure-button{
-    background: #1ca75f ;
+    background: #2E81FC ;
 }
 .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
-    background-color: #1ca75f  !important;
-    border-color: #1ca75f  !important;
+    background-color: #2E81FC  !important;
+    border-color: #2E81FC  !important;
 }
 .tags-li.active {
-    border: 1px solid #1ca75f ;
-    background-color: #1ca75f ;
+    border: 1px solid #2E81FC ;
+    background-color: #2E81FC ;
 }
 .collapse-btn:hover{
-    background: #1ca75f ;
+    background: #2E81FC ;
 }

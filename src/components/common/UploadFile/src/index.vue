@@ -36,7 +36,7 @@ export default {
         //上传路径
         url:{
             type:String,
-            default:'/oss/oss/storageObject'
+            default:'/file/storageObject'
         },
         //是否自动上传
         autoUpload:{
@@ -114,13 +114,15 @@ export default {
         },
         //单图上传
         async upload(file){
+            
             this.logding = true;
             let fileformData = this.getFileParam(file);
             try {
                 let result = await uploadFiles(this.url,fileformData,this.progress);
-                this.autoUpload === true && this.$emit('Success',result.obsPath);
-                this.autoUpload === false && this.$emit('Success',result);
+                this.autoUpload === true && this.$emit('success',result.obsPath);
+                this.autoUpload === false && this.$emit('success',result);
             } catch (err) {
+                console.log('xasxasxas',err)
                 this.$emit('Error',err)
             }
             this.$_inputDOM.value = null;
@@ -140,7 +142,7 @@ export default {
                 })
                 //发送多张上传
                 Promise.all(fileUploadFnList).then( (result) => {
-                    this.$emit('Success',result);
+                    this.$emit('success',result);
                 }).catch((error) => {
                     this.$emit('Error',err)
                 })

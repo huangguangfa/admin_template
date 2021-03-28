@@ -262,7 +262,7 @@ export default {
         .iconfont{ font-size: 18px;}
     }
     .title_selected{
-        color: #1ca75f; box-sizing: border-box;
+        color: #2E81FC; box-sizing: border-box;
         transition: all 0.5s ; 
         font-weight: 700; align-items: center; position: relative;
         span{font-weight: 700; font-size: 15px;}
@@ -278,7 +278,7 @@ export default {
         width: 85px;
         margin: 0 auto;
         height: 2px;
-        background:#1ca75f ;
+        background:#2E81FC ;
         position: absolute;left:20px;
     }
 }

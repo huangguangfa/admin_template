@@ -10,6 +10,14 @@
                 <el-select  v-if="tag === 'select'" v-model="value[key]" :placeholder="`选择${label}`" clearable>
                     <el-option v-for="item in option" :key="item.value" :label="item.label"  :value="item.value"> </el-option>
                 </el-select>
+               <el-date-picker 
+                    format="yyyy-MM-dd" 
+                    value-format="yyyy-MM-dd" 
+                    v-if="tag === 'date'" 
+                    v-model="value[key]" 
+                    type="date" 
+                    :placeholder="`选择${label}`"> 
+               </el-date-picker>
             </template>
         </div>
     </div>
@@ -43,7 +51,7 @@ export default{
     .search_condition_config{
         display: flex;align-items:center;margin:0 10px;
         .search_label{
-            white-space: nowrap;
+            white-space: nowrap;font-size: 12px;
         }
     }
 }

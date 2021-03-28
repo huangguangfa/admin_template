@@ -5,7 +5,7 @@
             <span v-for="(item,index) in list" :key="index">{{ item }}</span>
         </div>
         <div v-show="show">
-            <el-button icon="iconfont icon-fanhui" @click="backTrack" size="mini">返回</el-button>
+            <el-button icon="iconfont ranqi_iconfanhui" @click="backTrack" size="mini">返回</el-button>
         </div>
     </div>
 </template>

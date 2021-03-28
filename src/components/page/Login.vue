@@ -260,14 +260,14 @@ export default {
         height: 40px;
         margin-left: 10px;
         color: #FFF;
-        background-color: #1ca75f;
-        border-color: #1ca75f;
+        background-color: #2E81FC;
+        border-color: #2E81FC;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     .el-input.is-active .el-input__inner, .el-input__inner:focus {
-        border-color: #1ca75f;
+        border-color: #2E81FC;
         outline: 0;
     }
 }

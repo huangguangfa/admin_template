@@ -3,15 +3,29 @@ export default {
     state: {
         message:0, //全局消息数量
         menuItems:[
+            // {
+            //     icon: 'icon-ditu',
+            //     url: '/demo',
+            //     title: '业务相关',
+            //     children:[
+            //         {
+            //             url: '/demo',
+            //             icon: 'icon-renlianshibie2',
+            //             title: '硬件管理',
+            //             children:[]
+            //         }
+            //     ]
+            // },
+            
+            //用户管理
             {
-                icon: 'icon-ditu',
-                url: '/demo',
-                title: '业务相关',
+                icon: 'ranqi_icondh01',
+                url: '/user',
+                title: '燃气开户',
                 children:[
                     {
-                        url: '/demo',
-                        icon: 'icon-renlianshibie2',
-                        title: '硬件管理',
+                        url: '/user',
+                        title: '用户管理',
                         children:[]
                     }
                 ]

@@ -122,6 +122,11 @@
     display: flex;
     align-items: center;
 } 
+.w_50{width: 50% !important;}
+.w_100{width: 100% !important;}
+.h_100{height: 100% !important;}
+.no_l_border{border-left: none !important;}
+.no_top_border{border-top: none !important;}
 /* 表格标签的颜色 */
 .el-tags1{
     background-color: #F7FAFB !important;
@@ -178,4 +183,16 @@
     background:rgba(28,164,93,1); 
 }    
 
+.el-dropdown-menu--mini .el-dropdown-menu__item{margin: 10px 0;}
     
+/* 配合编辑页面样式更改 */
+.tablelist>tr>td>.h_row_item_value_box>.el-input{ height: 100% !important; border-right: 1px solid #cdd7df !important; width: 100% !important;  }
+.tablelist>tr>td>.h_row_item_value_box>.el-input--mini .el-input__inner{ height: 100% !important;border: none !important;  }
+.tablelist>tr>td:last-child>.h_row_item_value_box>.el-input{ border-right:none !important; }
+.tablelist>tr>td .el-select{ border-right: 1px solid #cdd7df !important; height: 100% !important; }
+.tablelist>tr>td>.h_row_item_value_box>.el-select>.el-input{ height: 100% !important; border-right: 1px solid #cdd7df !important; width: 100% !important;  }
+.tablelist>tr>td>.h_row_item_value_box>.el-select>.el-input>.el-input__inner{ height: 100% !important;border: none !important;  }
+.tablelist>tr>td:last-child>.h_row_item_value_box>.el-select{ border-right:none !important; }
+
+.el-dropdown>.el-dropdown-selfdefine{font-size: 12px;}
+.el-submenu.is-active .el-submenu__title{font-size: 14px;}

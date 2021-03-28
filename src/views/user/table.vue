@@ -4,6 +4,7 @@
         <search :config="searchConfig" v-model="searchValue" ref="search">
             <template #add>
                 <el-button type="primary" icon="iconfont ranqi_icondh23" @click="getData">  新增 </el-button>
+                <el-button type="primary" icon="iconfont ranqi_icondh21" @click="getData">  导出 </el-button>
             </template>
             <template #searchBtn>
                 <el-button type="primary" @click="initTableData">搜索</el-button>
@@ -17,13 +18,7 @@
             :option="tableOption">
             <template v-slot:operating_btn="{ scope }">
                 <el-dropdown>
-                    <el-button
-                        type="primary"
-                        size="mini"
-                        plain
-                        class="iconfont icon-caozuo"
-                        @click.stop
-                    >操作配置</el-button>
+                    <el-button type="primary" size="mini"  plain class="iconfont icon-caozuo" @click.stop >操作配置</el-button>
                     <el-dropdown-menu slot="dropdown" class="table-operate">
                         <el-dropdown-item>
                             <el-button type="success" icon="iconfont ranqi_iconxingzhuang995kaobei"  @click="getData(scope)">编辑</el-button>
@@ -53,7 +48,8 @@ export default {
             searchConfig:searchConfig,
             searchValue:{
                 name:null,
-                selectVal:null
+                phone:null,
+                date:null
             }
         };
     },
@@ -63,8 +59,10 @@ export default {
             this.$refs.tablePage.getPageData();
         },
         getData(data){
-            this.$pageShow("dataStatusPage", data);
-            // console.log(this.searchValue)
+            this.$pageShow("dataStatusPage", {
+                type:0,
+                data
+            });
         },
         //重置
         reset(){
